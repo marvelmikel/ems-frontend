@@ -1,4 +1,5 @@
 import './App.css'
+import DepartmentComponent from './components/DepartmentComponent'
 import EmployeeComponent from './components/EmployeeComponent'
 import FooterComponent from './components/FooterComponent'
 import HeaderComponent from './components/HeaderComponent'
@@ -25,6 +26,9 @@ function App() {
 
               {/* // http://localhost:3000/departments */}
               <Route path='/departments' element={<ListDepartmentComponent />}></Route>
+
+               {/* // http://localhost:3000/add-department */}
+               <Route path='/add-department' element={<DepartmentComponent />}></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>
