@@ -7,6 +7,8 @@ const ListDepartmentComponent = () => {
    
     const [departments, setDepartments] = useState([]);
 
+    const navigator = useNavigate();
+
     useEffect(() => {
         getAllDepartments().then((response) => {
             console.log(response.data);
@@ -16,6 +18,9 @@ const ListDepartmentComponent = () => {
         })
     }, []) 
 
+    function updateDepartment(id){
+        navigator(`/edit-department/${id}`)
+    }
   return (
     <div className='container'>
         <h2 className='text-center'>List of Departments</h2>
@@ -26,6 +31,7 @@ const ListDepartmentComponent = () => {
                     <th>Dept Id</th>
                     <th>Dept Name</th>
                     <th>Dept Desc</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +41,9 @@ const ListDepartmentComponent = () => {
                             <td>{department.id}</td>
                             <td>{department.departmentName}</td>
                             <td>{department.departmentDescription}</td>
+                            <td>
+                                <button onClick={() => updateDepartment(department.id)} className='btn btn-info'> Update</button>
+                            </td>
                         </tr>
                         )
                 }
